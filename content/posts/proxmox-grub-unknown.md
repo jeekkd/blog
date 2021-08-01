@@ -11,7 +11,7 @@ categories = [
 ]
 +++
 
-Recently I experienced a very frustrating bug with one of the hosts in my Proxmox cluster. It was not the first time I experienced this bug, previously I was not aware of any fix and had resort to re-installing the system if this occurred. But now there is a fix.
+Recently I experienced a very frustrating bug with one of the hosts in my Proxmox cluster. It was not the first time I experienced this bug, previously I was not aware of any fix and had to re-install the system if this occurred. Fortunately there is now a fix!
 <!--more-->
 
 What would happen is you would update your Proxmox installation and a zpool upgrade on the 'rpool' occurs, then you reboot, and find that your system is unbootable when you see the following error:
