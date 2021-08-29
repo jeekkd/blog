@@ -41,7 +41,7 @@ zend_extension=opcache.so
 # openssl req -new -x509 -key /etc/ssl/private/server.key -out /etc/ssl/server.crt -days 3365
 ```       
 
-4. Edit /etc/httpd.conf with the following contents. Note, replace in the domain variable your own hostname and domain. In this example my hostname is tt-rss and my domain is example.com.
+4. Edit /etc/httpd.conf with the following contents. Note, replace in the domain variable your own hostname and domain, note that the domain must resolve. If you do not have a record that is going to resolve to this host, put the IP here instead. In this example my hostname is tt-rss and my domain is example.com.
 
 ```
 ext_addr="*"
@@ -123,12 +123,9 @@ postgres=# \quit
 # chown -R www:www /var/www/htdocs/tt-rss
 ```
       
-11. This set is so that DNS works for the http server as it runs in a chroot environment, so copying in the following files is necessary.
+11. Copy system SSL certs into the chroot.
 
 ```    
-# mkdir -p /var/www/etc
-# cp /etc/hosts /var/www/etc
-# cp /etc/resolv.conf /var/www/etc
 # cp -R /etc/ssl/ /var/www/etc/
 # rm -rf /var/www/etc/ssl/private/
 ```
