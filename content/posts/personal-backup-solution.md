@@ -46,7 +46,7 @@ I ultimately ended up deciding to use Restic, it did not have quite as good dedu
 
 After some testing I came up with the following configuration. I installed Restic and Swaks from my distribution repository, wrote a script to handle automated backups of my files to each of the backend repositories I need, and then scheduled the backups to run on a user level systemd timer.
 
-Warning! If you use my script and service file, read through everything below carefully and assure you adjust it to your setup.
+Warning! If you use my script and service file, read through everything below carefully and assure you adjust it to your setup. Assure Restic and Swaks is installed.
 
 Create the timer and service file under .config/systemd/user/ then run the below commands.
 
