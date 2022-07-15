@@ -26,23 +26,23 @@ Xeoma right off the bat has three strengths for when you are first installing an
 
 After using the graphical module chaining feature, I believe that this is a key feature of Xeoma so I will focus on showing that.
 
-![Xeoma review image 1](/images/xeoma/xeoma-1.jpg)
+![Xeoma review image 1](/images/xeoma/xeoma-1.png)
 
 Here is an example of a module chain.
 
-![Xeoma review image 2](/images/xeoma/xeoma-2.jpg)
+![Xeoma review image 2](/images/xeoma/xeoma-2.png)
 
 Configuration of each module can be done by clicking on it. The location of modules can be moved by clicking and dragging to better visually organize them.
 
-![Xeoma review image 3](/images/xeoma/xeoma-3.jpg)
+![Xeoma review image 3](/images/xeoma/xeoma-3.png)
 
 Operations such as deleting connections between modules can be done by clicking on the "cable" that goes between the modules.
 
-![Xeoma review image 4](/images/xeoma/xeoma-4.jpg)
+![Xeoma review image 4](/images/xeoma/xeoma-4.png)
 
 To make a new connection to a different module, click either the source or destination white rectangle connector boxes, and drag the connector to where you want it to go.
 
-![Xeoma review image 5](/images/xeoma/xeoma-5.jpg)
+![Xeoma review image 5](/images/xeoma/xeoma-5.png)
 
 Here is a example of a more advanced module chain, it is fantastic what you can achieve! It will take a minute to explain what all of this does.
 
@@ -63,9 +63,9 @@ Note: Either add sudo in front of each command, or change to the root user, when
 
 `setenforce 0`
 
-2. Edit /etc/selinux/config and change SELINUX to permissive or disabled
+2. Edit /etc/selinux/config and change `SELINUX=` either to permissive or disabled.
 
-3. Download the installer
+3. Download the installer. Note you may need to install wget, to do so do: `dnf install wget`
 
 `wget https://felenasoft.com/xeoma/downloads/latest/linux/xeoma_linux64.tgz`
 
@@ -126,7 +126,7 @@ systemctl restart XeomaCoreService.service
 11. Assure the service is running. You should see in the output `Active: active (running)`.
 
 ```
-systemctl restart XeomaCoreService.service
+systemctl status XeomaCoreService.service
 ```
 
 12. Open the needed firewall port so the client software can access the server. If this a public server, I strongly recommend going further and restricting access by VPN only or open the port to a particular public IP only.
