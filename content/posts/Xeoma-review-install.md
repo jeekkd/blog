@@ -2,6 +2,7 @@
 author = "Daulton"
 title = "Xeoma review and installation guide"
 date = "2022-07-14"
+lastmod = "2022-07-30"
 description = "This is a brief review of Xeoma from FelenaSoft, in addition to an installation guide."
 tags = [
     "blog",
@@ -93,7 +94,14 @@ chown -R _xeoma /usr/local/Xeoma
 mkdir -p /usr/local/Pictures && chown -R _xeoma /usr/local/Pictures
 ```
 
-9. Edit /etc/systemd/system/XeomaCoreService.service and replace all of the existing file contents with the following. Open the config with Nano, or your preferred editor.
+9. Set an ACL on each of the directories so new files get created with the correct ownership.
+
+```
+setfacl -Rdm u:_xeoma:rwx /usr/local/Xeoma/
+setfacl -Rdm u:_xeoma:rwx /usr/local/Pictures
+
+```
+10. Edit /etc/systemd/system/XeomaCoreService.service and replace all of the existing file contents with the following. Open the config with Nano, or your preferred editor.
 
 `nano /etc/systemd/system/XeomaCoreService.service`
 
@@ -116,20 +124,20 @@ KillMode=process
 WantedBy=multi-user.target
 ```
 
-10. Since we changed the service file and moved important Xeoma files around, we need to tell systemd to reload the changes and then restart the Xeoma service.
+11. Since we changed the service file and moved important Xeoma files around, we need to tell systemd to reload the changes and then restart the Xeoma service.
 
 ```
 systemctl daemon-reload
 systemctl restart XeomaCoreService.service
 ```
 
-11. Assure the service is running. You should see in the output `Active: active (running)`.
+12. Assure the service is running. You should see in the output `Active: active (running)`.
 
 ```
 systemctl status XeomaCoreService.service
 ```
 
-12. Open the needed firewall port so the client software can access the server. If this a public server, I strongly recommend going further and restricting access by VPN only or open the port to a particular public IP only.
+13. Open the needed firewall port so the client software can access the server. If this a public server, I strongly recommend going further and restricting access by VPN only or open the port to a particular public IP only.
 
 ```
 firewall-cmd --permanent --zone=public --add-port=8090/tcp
@@ -147,7 +155,7 @@ firewall-cmd --reload
 
 Note: In the above example, if you want only one IP address to have access - in the add-source statement change this to the companies public IP that is allowed access and change the subnet to /32. For example 184.100.22.141/32.
 
-13. Install completed!
+14. Install completed!
 
 ### Notes -
 - "FTP Receiver" module, use a different port than 21 such as 2121 as program is not running as root and cannot bind to a privileged port.
