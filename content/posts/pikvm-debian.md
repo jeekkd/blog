@@ -28,13 +28,13 @@ To successfully install PiKVM on your own x86 hardware, you will be using my gui
 
 ## Some tips on connections, 
 
-#### HDMI capture card
+###### HDMI capture card
 
  - Plug the male micro USB into the HDMI capture card and the USB-A male end into your PiKVM box.
  - Plug the USB-A male end of the other USB cable into the HDMI capture card and the other end into your PiKVM box.
  - Plug a HDMI cable into the system you wish to control and plug the other end into the HDMI input on the capture card.
  
- #### USB HID
+ ###### USB HID
 - The USB-A end of the PL2303 USB cable goes into the PiKVM box, and the serial cable end of the cable gets plugged into the 
 - The UART TTL Serial Port To USB HID goes into the system you wish to remotely manage.
 
@@ -42,7 +42,7 @@ To successfully install PiKVM on your own x86 hardware, you will be using my gui
 
  - Before running the install script, install the following packages.
 
-    apt install python3-async-lru sudo
+       apt install python3-async-lru sudo
 
 - Next following the installation doc in step 3 run the installer again for part two of the install script. The install.sh part 2 will fail with the below error. 
 
